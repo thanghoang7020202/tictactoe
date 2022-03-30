@@ -113,7 +113,7 @@ noLastMove:
 	li $v0, 4
 	la $a0, NLM
 	syscall
-	j con_undo
+	j askLoop
 winA:
 	jal printBoard
 	li $v0, 4
