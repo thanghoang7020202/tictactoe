@@ -69,7 +69,9 @@ placeMarker:
 	beq $t2, 1, invalidPos
 	sle $t2, $t0, $zero
 	beq $t2, 1, invalidPos
-	beq $s7, 0, midCheck	#check if the first turn is middle (3,3) or not
+	addi $s6, $zero, 2 
+	slt $s6, $s7, $s6
+	beq $s6, 1, midCheck	#check if the first turn is middle (3,3) or not
 	notMid:
 	addi $s7, $s7, 1	#turn index
 	addi $t0, $t0, -1	#set them back to machine cordinates (0 to 4)
