@@ -158,7 +158,7 @@ placeMarker:
 	t1=inputInt();
 	if (t1>boardSize) goto invalidPos;
 	if (t1 < 1) goto invalidPos;
-	goto midCheck;
+	if(s7 < 2)goto midCheck;
 	notMid:
 	t0 -=1;
 	t1 -=1;
@@ -187,7 +187,7 @@ noLastMove:
 	printStr("no last move!\n");
 	goto loop;
 midCheck:
-	if (t0 != 3 && t1 != 3) goto notMid;
+	if (t0 != 3 || t1 != 3) goto notMid;
 	printf("During the first turn, you are not allowed to choose the central point (3,3)\n");
 	goto askLoop;
 winA:
