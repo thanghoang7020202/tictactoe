@@ -15,6 +15,7 @@ Dash:	.asciiz " _"
 X:	.asciiz " X"
 O:	.asciiz " O"
 newline:.asciiz "\n"
+askend: .asciiz "This is the end of the game, wanna try again? ([1]: continue, else: end )"
 	.text
 main:
 	li $s1, 1		# fill = 1
@@ -121,6 +122,14 @@ winA:
 	li $v0, 4
 	la $a0, Owin
 	syscall
+	li $v0, 4
+	la $a0, askend
+	syscall
+	li $v0, 5
+	syscall
+	beq $v0, 1, main
+	li $v0, 10
+	syscall
 	li $v0, 10
 	syscall 
 winB:
@@ -128,6 +137,13 @@ winB:
 	li $v0, 4
 	la $a0, Xwin
 	syscall
+	#-------------------- chang here
+	li $v0, 4
+	la $a0, askend
+	syscall
+	li $v0, 5
+	syscall
+	beq $v0, 1, main
 	li $v0, 10
 	syscall
 midCheck:
@@ -334,6 +350,14 @@ winCheck:
 endGame:
 	li $v0, 4
 	la $a0, Draw
+	syscall
+	li $v0, 4
+	la $a0, askend
+	syscall
+	li $v0, 5
+	syscall
+	beq $v0, 1, main
+	li $v0, 10
 	syscall
 	li $v0, 10
 	syscall
