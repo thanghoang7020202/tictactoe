@@ -62,7 +62,7 @@ int winCheck() {
 		t1++;
 		t0 = t1 * 5;
 		t2 = 0;
-		if(t1 >= 3) goto PreLoopH; 
+		if(t1 >= 3) goto preLoopH; 
 	checkloopInnerV:
 		if(t2 >= 5) goto checkLoopOuterV;
 		int x = t0 +t2;
@@ -73,7 +73,7 @@ int winCheck() {
 		}
 		t2++;
 		goto checkloopInnerV;
-	PreLoopH:
+	preLoopH:
 		t0 = 0;
 		t1 = -1;
 	checkLoopOuterH:
